@@ -1,0 +1,15 @@
+<div class="container my-3">
+  <div class="row justify-content-end">
+    <div class="col-auto"><button class="btn-primary btn" (click)="saveBoard()">Save</button>
+    </div>
+    <div class="col-auto">
+      <button (click)="addList()" class="btn btn-outline-dark">Add New Item</button>
+    </div>
+  </div>
+  <div class="row" style="height:inherit;">
+    <div class="col-auto" *ngFor="let list of lists;let i = index">
+      <app-list [list]="list" [listIndex]="i" (moveCardAcrossList)="moveCardAcrossList($event)"
+        (deleteList)="deleteList($event)" attr.listIndex="{{i}}"></app-list>
+    </div>
+  </div>
+</div>
